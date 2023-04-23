@@ -1,0 +1,24 @@
+UPDATE bill
+SET price = price * 5
+WHERE description = 'cake';
+
+
+DECLARE
+    value_name VARCHAR2(30) := 'John Doe';
+    value_m_address VARCHAR2(30) := 'Al-Farabi 30';
+BEGIN
+    INSERT INTO manager(name, m_address)
+    VALUES(value_name, value_m_address);
+DBMS_OUTPUT.PUT_LINE('Inserted successfully');
+END;
+
+
+DECLARE
+    name_deletedVARCHAR2(30) := 'John Doe';
+BEGIN
+    DELETE FROM barista
+    WHERE name = name_deleted;
+END;
+
+
+DBMS_OUTPUT.PUT_LINE('Count of rows that was changed: ' || SQL%ROWCOUNT);
