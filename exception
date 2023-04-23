@@ -1,0 +1,12 @@
+DECLARE
+  BILL_ID varchar2(30) := DSACB;
+BEGIN
+ IF LENGTH(BILL_ID) < 5  THEN
+    RAISE invalid_type;
+  ELSE
+    DBMS_OUTPUT.PUT_LINE('BILL_ID: ' || BILL_ID);
+  END IF;
+EXCEPTION
+  WHEN invalid_type THEN
+    DBMS_OUTPUT.PUT_LINE('Invalid bill type!');
+END;
