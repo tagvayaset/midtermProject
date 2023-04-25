@@ -1,24 +1,9 @@
-UPDATE bill
-SET price = price * 5
-WHERE description = 'cake';
-
-
-DECLARE
-    value_name VARCHAR2(30) := 'John Doe';
-    value_m_address VARCHAR2(30) := 'Al-Farabi 30';
+CREATE OR REPLACE PROCEDURE salary_updating (percentage_increasing NUMBER)
+IS
 BEGIN
-    INSERT INTO manager(name, m_address)
-    VALUES(value_name, value_m_address);
-DBMS_OUTPUT.PUT_LINE('Inserted successfully');
+  UPDATE BARISTA
+  SET  BARISTA_SALARY = BARISTA_SALARY * percentage_increasing
+  WHERE BARISTA_ID > 10012;
+
+  DBMS_OUTPUT.PUT_LINE('Number of barista_salary updated: ' || SQL%ROWCOUNT);
 END;
-
-
-DECLARE
-    name_deletedVARCHAR2(30) := 'John Doe';
-BEGIN
-    DELETE FROM barista
-    WHERE name = name_deleted;
-END;
-
-
-DBMS_OUTPUT.PUT_LINE('Count of rows that was changed: ' || SQL%ROWCOUNT);
