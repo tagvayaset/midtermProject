@@ -1,0 +1,7 @@
+CREATE OR REPLACE FUNCTION count_orders(server_id_in IN INTEGER) RETURN INTEGER AS
+  orders_completed INTEGER;
+BEGIN
+  SELECT COUNT(*) INTO orders_completed FROM ORDERS WHERE SERVER_ID = server_id_in;
+  RETURN orders_completed;
+END;
+SELECT count_orders(1) FROM DUAL;
